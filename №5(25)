@@ -1,0 +1,23 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+	int number = 0, counter, a, b;
+	a = 2422000;
+	b = 2422080;
+	for (int i = a; i <= b; i++) {
+		counter = 0;
+		for (int j = 2; j < i; j++) {
+			if (i % j == 0) {
+				counter += 1;
+				if (counter > 0)
+					break;
+			}
+		}
+		if (counter == 0) {
+			number += 1;
+			cout << number << " probel " << i<< endl;
+		}
+	}
+}
