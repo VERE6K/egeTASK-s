@@ -1,0 +1,29 @@
+#include <iostream>
+#include <fstream>
+#include<algorithm>
+#include<vector>
+using namespace std;
+
+int main() {
+	int a, b,c,counter = 0, max = 0, chislo, ostatok = 0;
+	ifstream fin("C:\\Users\\Lena\\Downloads\\27886.txt");
+	fin >> a >> b;
+	chislo = a;
+	ostatok = chislo;
+	vector <int> vec;
+	for (int i = 0; i < b; i++) {
+		fin >> c;
+		vec.push_back(c);
+	}
+	sort(vec.begin(), vec.end());
+	for (int i = 0; i < vec.size(); i++) {
+		a -= vec[i];
+		if (a >= 0) {
+			counter++;
+			max = vec[i];
+			ostatok -= vec[i];
+		}
+		else { break; }
+	}
+	cout << counter << "  " << max + ostatok;
+}
